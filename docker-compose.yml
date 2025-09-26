@@ -1,0 +1,18 @@
+
+services:
+  pipeboard-read-api:
+    build: .
+    container_name: pipeboard-read-api
+    env_file:
+      - .env
+    networks:
+      - internal
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    depends_on: []
+
+networks:
+  internal:
+    name: prefect_internal_network
+    external: true
