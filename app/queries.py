@@ -62,9 +62,9 @@ def persons_list(conn: psycopg.Connection, *, q: str | None, limit: int, offset:
 
 # — Organizações ——————————————————————————————————————————————————
 SQL_ORG_BY_DOC = """
-SELECT id, name, owner_id, update_time, cnpj_text
+SELECT id, name, owner_id, update_time, cpf_cnpj_text
 FROM organizacoes
-WHERE only_digits(coalesce(cnpj_text,'')) = %s
+WHERE only_digits(coalesce(cpf_cnpj_text,'')) = %s
 ORDER BY update_time DESC NULLS LAST
 LIMIT 1
 """
